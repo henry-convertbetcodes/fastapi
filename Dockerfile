@@ -2,6 +2,9 @@ FROM python:3.10-alpine
 WORKDIR /app
 COPY . /app
 RUN pip install -r requirements.txt
-ENV HNG_API_HOST = 16.171.60.189
-ENV HNG_API_ORIGINS = http://16.171.60.189:3000
-CMD [ "python","main.py"]
+
+ENV HNG_API_HOST = 13.53.39.118 
+ENV HNG_API_ORIGINS = http://13.53.39.118:32000
+                
+
+CMD ["sh","-c","uvicorn main:app --reload --port=8000 --host=0.0.0.0"]
